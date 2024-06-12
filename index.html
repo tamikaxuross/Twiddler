@@ -5,11 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Twiddler!</title>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <script src="data-generator.js"></script>
     <script src="index.js"></script>
   </head>
   <body>
+    <style>
+      body {
+        background-color: purple; /* Design your interface */
+        color: white;
+      }
+      .tweet {
+        border-bottom: 1px solid #ccc;
+        padding: 10px 0;
+      }
+      .username {
+        font-weight: bold;
+        cursor: pointer; /* Allow the user to click on any username */
+      }
+      .timestamp {
+        font-size: 0.8em;
+        color: #bbb;
+      }
+    </style>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>Twiddler</h1>
+          <div id="tweet-container"></div> <!-- Display tweets here -->
+          <div class="input-group mb-3">
+            <input type="text" id="tweet-input" class="form-control" placeholder="tweet here">
+            <div class="input-group-append">
+              <button id="tweet-button" class="btn btn-primary" type="button">Tweet</button> <!-- Allow the user to tweet -->
+            </div>
+          </div>
+          <button id="load-new-tweets" class="btn btn-primary mt-3">Load New Tweets</button> <!-- Show the user new tweets somehow -->
+        </div>
+      </div>
+    </div>
   </body>
 </html>

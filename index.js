@@ -1,16 +1,39 @@
 
 $(document).ready(() => {
   const $body = $('body');
-  $body.html('');
+  const $tweetsContainer = $('#tweet-container');
+  const $tweetsInput = $('#tweet-input');
+  const $tweetsButton = $('#tweet-button');
+  const $loadNewTweetsButton = $('#load-new-tweets');
 
-  const $tweets = streams.home.map((tweet) => {
-    const $tweet = $('<div></div>');
-    const text = `@${tweet.user}: ${tweet.message}`;
 
-    $tweet.text(text);
+ function createNewTweets(tweets) {
+  $tweetContainer.html(''); // Clear existing tweets
+  tweets.forEach((tweet) => {
+    const $tweet = $('<div class="tweet"></div>');
+    const $username = $('<span class="username"></span>'); // Allow the user to click on any username
+    const $message = $('<p></p>');
+    const $timestamp = $('<span class="timestamp"></span>'); // Display the timestamps 
+    
+    
+    $username.text(`@${tweet.user}`);
+    $message.text(tweet.message);
+    $timestamp.text(moment(tweet.created_at).fromNow()); // Show when the tweets were created
 
-    return $tweet;
+
+    $username.on('click', () => viewUserTimeline(tweet.user)); // Allow the user to click on any username to see that user's timeline
+
+    $tweet.append($username);
+    $tweet.append($message);
+    $tweet.append($timestamp);
+    $tweetContainer.append($tweet);
   });
-  $body.append($tweets);
+}
+
+// Function to load tweets
+function newTweets() {
+  createNewTweets(streams.home); // Show the user new tweets somehow
+}
+
 
 });
