@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <title>Twiddler!</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
@@ -11,6 +11,9 @@
     <script src="index.js"></script>
   </head>
   <body>
+    <script> 
+      const $tweetButton = $('tweet-button');
+    </script>
     <style>
       body {
         background-color: purple; /* Design your interface */
@@ -34,6 +37,9 @@
         <div class="col">
           <h1>Twiddler</h1>
           <div id="tweet-container"></div> <!-- Display tweets here -->
+          <div class="input-group mb-3">
+            <input type="text" id="username-input" class="form-control" placeholder="Your username"> <!-- Input for username -->
+          </div>
           <div class="input-group mb-3">
             <input type="text" id="tweet-input" class="form-control" placeholder="tweet here">
             <div class="input-group-append">
