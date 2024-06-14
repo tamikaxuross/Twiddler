@@ -40,6 +40,10 @@ $(document).ready(() => {
   }
 
   // Function to handle tweeting
+  function addTweet(newTweet) {
+    streams.home.push(newTweet); // Add the new tweet to the home stream
+  }
+  
   function handleTweet() {
     const username = $usernameInput.val();
     const message = $tweetInput.val();
